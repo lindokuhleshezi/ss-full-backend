@@ -1,0 +1,111 @@
+spring:  
+  profiles: 
+    active: "prod"
+
+---
+server:
+    port: 5000
+spring:
+  profiles:
+    active: prod
+  datasource:
+    password: slabbert
+    url: jdbc:postgresql://aa1w1iypr3ngqee.crljcs3quqqk.us-east-1.rds.amazonaws.com:5432/ss
+    username: ss
+#  flyway:
+#    baseline-on-migrate: true
+#    enabled: true
+  jpa:
+    hibernate:
+        ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          enable_lazy_load_no_trans: true
+#          generate_statistics: true
+#          stat: info
+  resources:
+    static-locations: "classpath:/static/"
+  jackson: 
+      serialization:
+        FAIL_ON_EMPTY_BEANS: false
+  servlet:
+    multipart:
+      max-file-size: 5000MB
+      max-request-size: 5000MB
+
+---
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: slabbert    
+
+---
+management:
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: '*'
+
+---
+slabbert:
+  aws:
+    s3:
+      access_key_id: AKIAT3NT5MSATLK345II
+      bucket_name: slabbert
+      region: US_EAST_1
+      secret_access: T4uqEDYwN7p+qKOa70wW0J3ksMQbGkbaKKjjFayg
+
+---
+slabbert:
+  mail:
+    default-encoding: UTF-8
+    host: mail.slabbert-admin.co.za
+    password: gH1Wir6!4)di
+    port: 587
+    properties:
+      mail:
+        auth:
+          starttls:
+            enable: true
+    protocol: smtp
+    test-connection: true
+    username: slabbutp
+    from-address: slabbutp@slabbert-admin.co.za
+
+---
+# logging
+logging:
+  level: 
+      org: 
+        hibernate: 
+          SQL: debug
+
+---
+slabbert:
+  cron:
+    mail: 
+      scheduler: 
+            job: 0 0 10 1/31 * ?
+#slabbert: 
+#  public_key: slabbert_slabbert
+#security:
+#    jwt:
+#      public-key: classpath:public.txt
+#logging:
+#  level:
+#    com: 
+#      zaxxer: 
+#        hikari: debug   
+####### live environment ########################
+      
+  

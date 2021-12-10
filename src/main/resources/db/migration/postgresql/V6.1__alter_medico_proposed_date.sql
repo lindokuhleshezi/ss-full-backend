@@ -1,0 +1,1 @@
+ALTER TABLE proposed_date ADD COLUMN description TEXT;

@@ -1,0 +1,73 @@
+server:
+  port: 8282
+spring:
+  datasource:
+
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/ss
+    username: postgres
+
+    
+  jackson: 
+      serialization:
+        FAIL_ON_EMPTY_BEANS: false
+              
+  jpa:
+    hibernate:
+        ddl-auto: update
+    show-sql: true
+    properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          
+  mail:
+    default-encoding: UTF-8
+    host: mail.slabbert-admin.co.za
+    username: slabbutp
+    password: gH1Wir6!4)di
+    port: 587
+    properties:
+          mail:
+            auth: true
+            starttls:
+                enable: true
+    protocol: smtp
+    test-connection: true
+
+          
+
+######## live environment ########################
+#server:
+#    port: 5000
+#spring:
+#  datasource:
+#    password: slabbert
+#    url: jdbc:postgresql://aa1w1iypr3ngqee.crljcs3quqqk.us-east-1.rds.amazonaws.com:5432/slabbert
+#    username: ss
+#    
+#  jackson: 
+#      serialization:
+#        FAIL_ON_EMPTY_BEANS: false
+#              
+#  jpa:
+#    hibernate:
+#        ddl-auto: update
+#    show-sql: true
+#    properties:
+#        hibernate:
+#          dialect: org.hibernate.dialect.PostgreSQLDialect
+#  mail:
+#    default-encoding: UTF-8
+#    host: smtp.gmail.com
+#    username: ################
+#    password: ###############
+#    port: 587
+#    properties:
+#          mail:
+#            auth: true
+#            starttls: 
+#                  enable: true
+#    protocol: smtp
+#    test-connection: false
+          
+  

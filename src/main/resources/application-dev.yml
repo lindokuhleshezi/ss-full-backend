@@ -1,0 +1,79 @@
+spring:  
+  profiles: 
+    active: "dev"
+
+---
+server:
+  port: 8282
+spring:  
+  application: 
+    name: Slabbert
+  datasource:
+    initialization-mode: always
+    #data: classpath:/db/sql/oauth.sql
+    url: jdbc:postgresql://localhost:5432/ss 
+    username: ss
+    password: ss
+    hikari: 
+      leak-detection-threshold: 60000
+      idleTimeout: 30000
+      connectionTimeout: 30000
+      minimumIdle: 5
+      maximumPoolSize: 100
+      maxLifetime: 28800000
+      auto-commit: false
+#  flyway:
+#    baseline-on-migrate: true
+#    enabled: true
+#    
+    
+  jpa:
+    hibernate:
+        ddl-auto: update      
+    show-sql: true
+    open-in-view: true
+    properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect  
+  resources:
+    static-locations: "classpath:/static/"
+  jackson: 
+      serialization:
+        FAIL_ON_EMPTY_BEANS: false
+  servlet:
+    multipart:
+      max-file-size: 5000MB
+      max-request-size: 5000MB
+  
+---         
+slabbert:
+  mail:
+    default-encoding: UTF-8
+    host: mail.slabbert-admin.co.za
+    username: slabbutp
+    password: gH1Wir6!4)di
+    port: 587
+    properties:
+          mail:
+            auth: true
+            starttls:
+                enable: true
+    protocol: smtp
+    test-connection: true
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: slabbert   
+#slabbert: 
+#  public_key: slabbert_slabbert
+#security:
+#    jwt:
+#      public-key: classpath:public.txt
+#logging:
+#  level:
+#    com: 
+#      zaxxer: 
+#        hikari: debug   
+####### live environment ########################
